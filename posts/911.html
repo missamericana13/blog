@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-1-1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="../img/prof.jpg" type="image/jpg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4fcff;
+            color: #333333;
+            font-family: "Questrial", sans-serif;
+            font-size: 16px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 30px;
+            height: auto;
+            display: block;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 0 30px;
+            height: 60px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            font-family: "Castoro Titling", serif;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #000000;
+        }
+
+        .contenedor {
+            display: flex;
+            width: 100%;
+            height: auto;
+        }
+
+        .breadcrumb {
+            font-size: 0.80em;
+            color: #555555;
+            margin: 10px 0 20px 0;
+            padding-left: 10px;
+            font-family: "Zalando Sans Expanded", sans-serif;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #6aa0b9;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #1d3c75;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #777777;
+        }
+
+        .main {
+            flex: 75%;
+            background-color: #f4fcff;
+            padding: 20px;
+            box-sizing: border-box;
+            height: auto;
+        }
+
+        .main h1 {
+            text-align: center;
+            color: #447f98;
+            margin: 30px 0 10px 0;
+            font-size: 55px;
+            font-family: "Castoro Titling", serif;
+        }
+
+        .main>p:first-of-type {
+            text-align: center;
+            font-size: 20px;
+            color: #444444;
+            margin-bottom: 20px;
+            font-variant: bold;
+        }
+
+        .imagen-principal {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+            margin: 20px 0;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+
+        .main>p:nth-of-type(2) {
+            margin-top: 5px;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .seccion {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .seccion img {
+            width: auto;
+            height: 300px;
+            border-radius: 8px;
+        }
+
+        .seccion p {
+            flex: 1;
+            text-align: justify;
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.6em;
+        }
+
+        .hashtags {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #555555;
+            padding-top: 20px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #cccccc;
+            margin-top: 30px;
+            padding-top: 10px;
+            padding-left: 30px;
+            padding-right: 50px;
+            font-size: 0.9em;
+            color: #555555;
+            flex-wrap: wrap;
+        }
+
+        .info p {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .info .perfil {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .navegacion a {
+            text-decoration: none;
+            background-color: #CAE3F7;
+            color: #333333;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px #0000001a;
+        }
+
+        .navegacion a:hover {
+            background-color: #629BB5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px #00000026;
+        }
+
+        .sidebar {
+            background-color: #CAE3F7;
+            padding: 20px;
+            border-radius: 2px;
+            color: #2B5399;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 25%;
+            background-color: #cae3f7;
+            padding: 20px;
+        }
+
+        .sidebar-section {
+            background-color: #f9fbff;
+            border: 1px solid #aac6e8;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .sidebar-section h3 {
+            margin-bottom: 10px;
+            color: #447f98;
+            font-size: 1.2em;
+            border-bottom: 2px solid #CAE3F7;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        .sidebar-section p {
+            font-size: 0.95em;
+            color: #333333;
+            line-height: 1.4em;
+            text-align: justify;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-section ul li {
+            margin-bottom: 8px;
+            border-bottom: 1px solid #aac6e8;
+            padding-bottom: 6px;
+        }
+
+        .sidebar-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-section ul li a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+        .sidebar-section ul li a:hover {
+            color: #3f8cad;
+            text-shadow: 0 0 4px #4b95e94d;
+        }
+
+        .subscribe-form input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #aac6e8;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .subscribe-form button {
+            background-color: #629bb5;
+            color: #ffffff;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #447f98;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border: 2px solid #629bb5;
+            border-radius: 10px;
+            padding: 25px 35px;
+            box-shadow: 0 5px 25px #0000004d;
+            z-index: 1000;
+            text-align: center;
+            max-width: 350px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal h2 {
+            color: #629bb5;
+            margin-bottom: 10px;
+            font-family: "Castoro Titling", serif;
+        }
+
+        .modal p {
+            color: #555555;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .close-btn {
+            background-color: #629bb5;
+            color: #ffffff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .close-btn:hover {
+            background-color: #447f98;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -48%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .otros-trabajos {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .otros-trabajos li {
+            margin-bottom: 6px;
+        }
+
+        .otros-trabajos a {
+            color: #2B5399;
+            text-decoration: none;
+        }
+
+        .otros-trabajos a:hover {
+            text-decoration: underline;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 55px;
+            right: 25px;
+            background-color: #377792;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 6px #00000033;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+        }
+
+        #backToTop:hover {
+            background-color: #629bb5;
+            transform: translateY(-3px);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ccc;
+            font-size: 0.9em;
+            color: #555;
+            height: 50px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            opacity: 0.7;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #f8f8f8;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid #cccccc;
+                padding: 10px 0;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .contenedor {
+                flex-direction: column;
+            }
+
+            .main,
+            .sidebar {
+                flex: 100%;
+            }
+
+            .seccion {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+
+            .imagen-secundaria {
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+                object-fit: cover;
+                margin-top: 10px;
+            }
+
+            @media (max-width: 768px) {
+                .info {
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    gap: 5px;
+                }
+
+                .sidebar-section ul {
+                    text-align: center;
+                    padding: 0;
+                }
+
+                .sidebar-section ul li {
+                    display: flex;
+                    justify-content: center;
+                    border-bottom: 1px solid #aac6e8;
+                    padding-bottom: 6px;
+                    margin-bottom: 8px;
+                }
+
+                .sidebar-section ul li:last-child {
+                    border-bottom: none;
+                }
+
+                .sidebar-section ul li a {
+                    display: inline-block;
+                    text-align: center;
+                }
+
+                #backToTop {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 20px;
+                    bottom: 55px;
+                    right: 15px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../img/bengala.png" alt="Logo">
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../allpost.html">Posts</a></li>
+                <li><a href="../about.html">Acerca de</a></li>
+                <li><a href="../contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="menu-icon" id="menuIcon">☰</div>
+        </nav>
+    </header>
+
+    <div class="contenedor">
+        <div class="main">
+            <nav class="breadcrumb">
+                <a href="../../index.html">Inicio</a> /
+                <a href="../series.html">Series</a> /
+                <span> 9-1-1 </span>
+            </nav>
+
+            <h1>9-1-1</h1>
+            <p>Es una serie de televisión estadounidense creada por Ryan Murphy, Brad Falchuk y Tim Minear, estrenada en
+                2018 y producida por Fox. Pertenece al género de drama y acción, y se centra en el trabajo y la vida
+                personal de los bomberos, paramédicos, policías y operadores del número de emergencia 911 en Los Ángeles
+            </p>
+            <img src="../img/compose.webp" alt="Imagen principal" class="imagen-principal">
+            <!--<p>pie de imagen</p>-->
+
+            <div class="seccion">
+                <img src="../img/9112.jpg" alt="Imagen 2" class="imagen-secundaria">
+                <p>Cada episodio muestra diferentes emergencias que el equipo debe atender: accidentes, desastres
+                    naturales, llamadas desesperadas y situaciones que parecen imposibles. Pero más allá de la acción,
+                    la serie también explora la vida privada de los personajes —sus miedos, pérdidas y relaciones—,
+                    mostrando que detrás de cada uniforme hay una persona que también necesita ser salvada a veces. A
+                    través de distintos casos, 9-1-1 mezcla el suspenso de las intervenciones con momentos emotivos y
+                    humanos, manteniendo siempre el equilibrio entre el caos del trabajo y la vulnerabilidad de quienes
+                    lo enfrentan.</p>
+
+            </div>
+
+            <div class="seccion">
+                <p>Esta serie me gustó mucho porque combina perfectamente la acción intensa con historias personales muy
+                    profundas. No es solo sobre rescates espectaculares —que los tiene, y están muy bien hechos—, sino
+                    sobre cómo cada personaje lidia con el peso emocional de ayudar a otros mientras intenta mantener su
+                    propia vida en pie.
+                    Mis personajes favoritos son Athena y Bobby, porque muestran fuerza y empatía sin perder humanidad.
+                    También me gusta cómo la serie logra que cada capítulo te deje con una mezcla de adrenalina y
+                    emoción, y cómo muestra diferentes tipos de héroes, no solo los que usan casco o uniforme.
+                    En general, 9-1-1 me parece una serie que te atrapa desde el primer episodio. Tiene acción, drama y
+                    momentos muy conmovedores, pero sobre todo, transmite la idea de que incluso en las peores
+                    emergencias, la esperanza y la solidaridad pueden marcar la diferencia.</p>
+                <img src="../img/9113.jpg" alt="Imagen 3" class="imagen-secundaria">
+            </div>
+
+            <p class="hashtags"> #drama #accion #emergencias</p>
+
+            <div class="info">
+                <span>Fecha de publicación: 7/11/2025</span>
+                <span>Publicado por: Yani <img src="../img/prof.jpg" alt="Perfil" class="perfil"></span>
+            </div>
+
+            <div class="navegacion">
+                <a href="tloas.html">Anterior</a>
+                <a href="../index.html">Inicio</a>
+                <a href="silksong.html">Siguiente</a>
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h3>SOBRE MI</h3>
+                <p>En este blog comparto reseñas, opiniones sin spoilers y descubrimientos sobre series, películas,
+                    libros, juegos y música.</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>NEWSLETTER</h3>
+                <p>Suscríbete para enterarte de nuevas publicaciones.</p>
+
+                <form class="subscribe-form" id="subscribeForm">
+                    <input type="email" id="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </div>
+
+            <div class="modal" id="successModal">
+                <div class="modal-content">
+                    <h2>¡Suscripción exitosa!</h2>
+                    <p>Gracias por suscribirte. Te avisaremos cuando haya nuevos posteos.</p>
+                    <button class="close-btn" id="closeModal">Cerrar</button>
+                </div>
+            </div>
+
+
+            <div class="sidebar-section">
+                <h3>ULTIMOS POSTS</h3>
+                <ul>
+                    <li><a href="/posts/silksong.html">Hollow Knight: Silksong</a></li>
+                    <li><a href="/posts/911.html">9-1-1s</a></li>
+                    <li><a href="/posts/tloas.html">The Life of a Showgirl</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>OTROS TRABAJOS</h3>
+                <ul class="otros-trabajos">
+                    <li><a href="https://missamericana13.github.io/desarrolloweb/index.html" target="_blank"
+                            rel="noopener noreferrer">Identikit</a></li>
+                    <li><a href="https://missamericana13.github.io/linktree/index.html" target="_blank"
+                            rel="noopener noreferrer">Linktree</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button id="backToTop" title="Volver arriba">↑</button>
+
+    <footer class="footer">
+        <p>© Copyright - Missamerica de Yani Lencina</p>
+        <div class="social-icons">
+            <a href="https://www.x.com/" target="_blank"><img src="../img/gorjeo.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="../img/instagram.png" alt="Instagram"></a>
+            <a href="https://ar.pinterest.com/" target="_blank"><img src="../img/pinterest.png" alt="Pinterest"></a>
+            <a href="https://www.tiktok.com/" target="_blank"><img src="../img/tiktok.png" alt="Tiktok"></a>
+            <a href="https://www.discord.com/" target="_blank"><img src="../img/discord.png" alt="Discord"></a>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('subscribeForm');
+        const modal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            if (email) {
+                modal.style.display = 'flex';
+                form.reset();
+            }
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+
+        const menuIcon = document.getElementById('menuIcon');
+        const navLinks = document.getElementById('navLinks');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+    </script>
+
+</body>
+</html>
