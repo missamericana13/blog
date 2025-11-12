@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Blog de Missamericana</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="img/prof.jpg" type="image/jpg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Questrial", sans-serif;
+            background-color: #f4fcff;
+            color: #333333;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 30px;
+            height: auto;
+            display: block;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 0 30px;
+            height: 60px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            font-family: "Castoro Titling", serif;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 400px;
+            padding: 50px 0;
+            background-image: url(img/header3.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .header-image h1 {
+            color: #2B5399;
+        }
+
+        .nav-links a.activo {
+            color: #629bb5;
+        }
+
+        .categories {
+            padding: 20px 20px;
+            margin: 20px;
+            font-size: large;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .category-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-list {
+            display: flex;
+            gap: 15px;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            border: none;
+        }
+
+        .category-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category {
+            flex: 0 0 auto;
+            width: 280px;
+            height: 336px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .category img:hover {
+            transform: scale(1.05);
+        }
+
+        .arrow {
+            background-color: #F4FCFF;
+            border: none;
+            font-size: 35px;
+            cursor: pointer;
+            color: #236887;
+            padding: 5px 10px;
+            transition: 0.2s;
+            z-index: 2;
+        }
+
+        .arrow:hover {
+            color: #236887;
+            background-color: #d6ebf3;
+        }
+
+        .arrow.left {
+            margin-right: 5px;
+        }
+
+        .arrow.right {
+            margin-left: 5px;
+        }
+
+        .posts {
+            border: 1px solid #b9d8e1;
+            margin: 20px;
+            padding: 20px;
+            background-color: #d6ebf3;
+            border-radius: 10px;
+        }
+
+        h4 {
+            margin-top: 13px;
+            color: #333;
+        }
+
+        .post-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .post {
+            width: 300px;
+            height: 180px;
+            border: 1px solid #629bb5;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px #2B5399;
+        }
+
+        .post img {
+            width: 100%;
+            height: 75%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .post p {
+            font-size: 0.9em;
+            margin: 5px 0 0;
+            color: #333;
+        }
+
+        .ver-todos-container {
+            text-align: right;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        .ver-todos {
+            text-decoration: none;
+            color: #629bb5;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .ver-todos:hover {
+            text-shadow: 0 0 5px #b9d8e1;
+            text-decoration: underline;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 55px;
+            right: 25px;
+            background-color: #377792;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 6px #00000033;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+        }
+
+        #backToTop:hover {
+            background-color: #629bb5;
+            transform: translateY(-3px);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ccc;
+            font-size: 0.9em;
+            color: #555;
+            height: 50px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            opacity: 0.7;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #f8f8f8;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid #ccc;
+                padding: 10px 0;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .header-image {
+                height: 150px;
+            }
+
+            .arrow {
+                display: none;
+            }
+
+            .post-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .post {
+                width: 90%;
+                max-width: 320px;
+                height: auto;
+                padding-bottom: 10px;
+            }
+
+            .post img {
+                height: 150px;
+            }
+
+            #backToTop {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                bottom: 55px;
+                right: 15px;
+            }
+
+            .footer {
+                font-size: 0.8em;
+                padding: 10px;
+            }
+    }
+        
+    </style>
+
+</head>
+<body>
+
+    <header class="header">
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/bengala.png" alt="Logo">
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="activo">Inicio</a></li>
+                <li><a href="allpost.html">Posts</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="menu-icon" id="menuIcon">☰</div>
+        </nav>
+
+        <div class="header-image"></div>
+    </header>
+
+    <section class="posts">
+        <h2>Últimos posts</h2>
+        <div class="post-list">
+            <div class="post">
+                <a href="posts/silksong.html"><img src="img/silksong2.jpg" alt=""></a>
+                <h4>Hollow Knight: Silksong</h4>
+            </div>
+            <div class="post">
+                <a href="posts/911.html"><img src="img/compose.webp" alt=""></a>
+                <h4>9-1-1</h4>
+            </div>
+            <div class="post">
+                <a href="posts/tloas.html"><img src="img/tloas.jpg" alt=""></a>
+                <h4>The Life of a Showgirl</h4>
+            </div>
+        </div>
+
+        <div class="ver-todos-container">
+            <a href="allpost.html" class="ver-todos">Ver todos los posts →</a>
+        </div>
+    </section>
+
+    <section class="categories">
+        <h2>Categorías</h2>
+
+        <div class="category-container">
+            <button class="arrow left" onclick="scrollCategories(-1)">&#10094;</button>
+
+            <div class="category-list">
+                <div class="category"><a href="juegos.html"><img src="img/catjuegos.jpg" alt="Juegos"></a></div>
+                <div class="category"><a href="musica.html"><img src="img/catmusica.jpg" alt="Música"></a></div>
+                <div class="category"><a href="peliculas.html"><img src="img/catpeliculas.jpg" alt="Películas"></a>
+                </div>
+                <div class="category"><a href="series.html"><img src="img/catseries.jpg" alt="Series"></a></div>
+                <div class="category"><a href="libros.html"><img src="img/catlibros.jpg" alt="Libros"></a></div>
+            </div>
+
+            <button class="arrow right" onclick="scrollCategories(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <button id="backToTop" title="Volver arriba">↑</button>
+
+
+    <footer class="footer">
+        <p>© Copyright - Missamerica de Yani Lencina</p>
+        <div class="social-icons">
+            <a href="https://www.x.com/" target="_blank"><img src="img/gorjeo.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
+            <a href="https://ar.pinterest.com/" target="_blank"><img src="img/pinterest.png" alt="Pinterest"></a>
+            <a href="https://www.tiktok.com/" target="_blank"><img src="img/tiktok.png" alt="Tiktok"></a>
+            <a href="https://www.discord.com/" target="_blank"><img src="img/discord.png" alt="Discord"></a>
+        </div>
+    </footer>
+
+    <script>
+        function scrollCategories(direction) {
+            const container = document.querySelector('.category-list');
+            const category = container.querySelector('.category');
+            if (!category) return;
+            const styles = getComputedStyle(container);
+            const gap = parseInt(styles.gap) || 0;
+            const scrollAmount = category.offsetWidth + gap;
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        const menuIcon = document.getElementById('menuIcon');
+        const navLinks = document.getElementById('navLinks');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+    </script>
+
+</body>
+
+</html>

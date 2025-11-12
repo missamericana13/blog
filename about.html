@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="img/prof.jpg" type="image/jpg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4fcff;
+            color: #333333;
+            font-family: "Questrial", sans-serif;
+            font-size: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 30px;
+            height: auto;
+            display: block;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 0 30px;
+            height: 60px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            font-family: "Castoro Titling", serif;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .nav-links a.activo {
+            color: #629bb5;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #000000;
+        }
+
+        .contenedor {
+            display: flex;
+            width: 100%;
+            height: auto;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .about-section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px #0000000d;
+            padding: 40px;
+            line-height: 1.7;
+        }
+
+        .about-section h1 {
+            font-family: "Castoro Titling", serif;
+            color: #444444;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+
+        .about-section p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: #444444;
+            text-align: justify;
+        }
+
+        .about-highlight {
+            color: #447f98;
+            font-weight: bold;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 55px;
+            right: 25px;
+            background-color: #377792;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 6px #00000033;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+        }
+
+        #backToTop:hover {
+            background-color: #629bb5;
+            transform: translateY(-3px);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #cccccc;
+            font-size: 0.9em;
+            color: #555555;
+            height: 50px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            opacity: 0.7;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #f8f8f8;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid #cccccc;
+                padding: 10px 0;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .contenedor {
+                flex-direction: column;
+            }
+
+            .main,
+            .sidebar {
+                flex: 100%;
+            }
+        }
+
+        .extra {
+            font-size: 0.9em;
+            padding: 20px;
+        }
+
+        #backToTop {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            bottom: 55px;
+            right: 15px;
+        }
+
+        .footer {
+            font-size: 0.8em;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../img/bengala.png" alt="Logo">
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../allpost.html">Posts</a></li>
+                <li><a href="../about.html" class="activo">Acerca de</a></li>
+                <li><a href="../contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="menu-icon" id="menuIcon">☰</div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h1>Sobre Missamericana</h1>
+            <p>
+                <span class="about-highlight">MISSAMERICANA</span> nació como un espacio para hablar de lo que me
+                apasiona: las historias que nos marcan, los mundos que imaginamos y las emociones que quedan después de
+                ver una serie, una película o de escuchar un álbum.
+            </p>
+            <p>
+                Este blog es mi forma de compartir reseñas, análisis y pequeñas reflexiones sobre cultura pop, pero con
+                una mirada más personal, estética y emocional. No se trata solo de si algo es “bueno” o “malo”, sino de
+                qué nos hace sentir, de qué manera conecta con lo que somos.
+            </p>
+            <p>
+                Acá conviven mis géneros favoritos, las películas y series que me ayudan a calmar la cabeza, los juegos
+                que me entretienen y las bandas sonoras que se quedan sonando incluso cuando todo termina.
+                <span class="about-highlight">MISSAMERICANA</span> es un rincón donde la nostalgia, la crítica y la
+                sensibilidad se encuentran.
+            </p>
+            <p>
+                Si te gustan las historias que te acompañan incluso después de terminar, los mundos que te envuelven y
+                las emociones que duran más que los créditos, estás en el lugar correcto.
+            </p>
+        </section>
+    </main>
+
+    <button id="backToTop" title="Volver arriba">↑</button>
+
+    <footer class="footer">
+        <p>© Copyright - Missamerica de Yani Lencina</p>
+        <div class="social-icons">
+            <a href="https://www.x.com/" target="_blank"><img src="../img/gorjeo.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="../img/instagram.png" alt="Instagram"></a>
+            <a href="https://ar.pinterest.com/" target="_blank"><img src="../img/pinterest.png" alt="Pinterest"></a>
+            <a href="https://www.tiktok.com/" target="_blank"><img src="../img/tiktok.png" alt="Tiktok"></a>
+            <a href="https://www.discord.com/" target="_blank"><img src="../img/discord.png" alt="Discord"></a>
+        </div>
+    </footer>
+
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const navLinks = document.getElementById('navLinks');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+
+</html>
